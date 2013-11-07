@@ -1,0 +1,3 @@
+servers: ldap://<%= scope.lookupvar('sasl::ldap_server') %>
+ldap_search_base: ou=<%= scope.lookupvar('sasl::ldap_ou') %>,dc=<%= scope.lookupvar('sasl::ldap_org') %>,dc=<%= scope.lookupvar('sasl::ldap_dom') %>
+ldap_filter: (<%= scope.lookupvar('sasl::ldap_filter') %>=%u)

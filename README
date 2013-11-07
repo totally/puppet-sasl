@@ -1,0 +1,24 @@
+# SASL Module:
+
+Enable SASL Authentication with LDAP Backend
+
+# Usage:
+
+include sasl
+
+# Variables
+
+    # sasl "mechanism" pam, ldap, etc
+    $mechanisms = hiera('sasl_mechanisms', $sasl::params::mechanisms),
+    # hostname of where ldap lives
+    $ldap_server= hiera('ldap_server',    $sasl::params::ldap_server),
+    # ldap_ou, ldap_org, ldap_dom:
+    # for 'ou=people,dc=example,dc=com' 
+    # - $ldap_ou  = 'people' 
+    # - $ldap_org = 'example' 
+    # - $ldap_dom = 'com'
+    $ldap_ou    = hiera('ldap_ou',        $sasl::params::ldap_ou),
+    $ldap_org   = hiera('ldap_org',       $sasl::params::ldap_org),
+    $ldap_dom   = hiera('ldap_dom',       $sasl::params::ldap_dom),
+    # ldap_filter: field in sasl config file
+    $ldap_filter= hiera('ldap_filter',    $sasl::params::ldap_filter),
